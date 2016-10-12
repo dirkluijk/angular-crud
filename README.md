@@ -3,8 +3,8 @@
 
 ## Get started
 
-Be sure to have npm and gulp installed.
+Be sure to have npm and webpack installed.
 
 * Run ``npm install``
-* Run ``gulp``
+* Run ``webpack``
 * Open ``index.html`` in your browser.
