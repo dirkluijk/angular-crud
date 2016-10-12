@@ -1,0 +1,10 @@
+<h2>Persoon wijzigen</h2>
+
+<form ng-submit="savePerson()">
+    <input type="text" class="form-control" ng-model="person.name" placeholder="Naam">
+
+    <div class="spacer">
+        <button type="submit" class="btn btn-primary">Opslaan</button>
+        <a ui-sref="list" class="btn btn-link">Terug</a>
+    </div>
+</form>

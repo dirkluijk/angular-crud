@@ -1,0 +1,15 @@
+<ul class="list-group">
+    <li ng-repeat="person in persons" class="list-group-item">
+        #{{person.id}} - {{ person.name }}
+
+        <div class="pull-right">
+            <button class="btn btn-default btn-xs" ui-sref="edit({id: person.id})">Wijzigen</button>
+            <button class="btn btn-danger btn-xs" ui-sref="delete({id: person.id})">Verwijderen</button>
+        </div>
+    </li>
+</ul>
+
+<button class="btn btn-primary" ui-sref="add">
+    <i class="glyphicon glyphicon-plus"></i>
+    Nieuwe persoon
+</button>
