@@ -1,5 +1,5 @@
 
-# Angular Todo example
+# Angular CRUD application
 
 ## Get started
 
