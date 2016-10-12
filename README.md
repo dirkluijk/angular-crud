@@ -3,4 +3,8 @@
 
 ## Get started
 
-Run ``npm install`` and you are good to go.
+Be sure to have npm and gulp installed.
+
+* Run ``npm install``
+* Run ``gulp``
+* Open ``index.html`` in your browser.
