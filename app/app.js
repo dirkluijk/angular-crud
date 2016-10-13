@@ -32,4 +32,7 @@ angular
             templateUrl: 'app/delete/delete.html',
             controller: 'deleteController'
         });
+    })
+    .run(function ($state) {
+        $state.go('list');
     });
