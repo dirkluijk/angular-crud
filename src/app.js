@@ -46,4 +46,5 @@ angular
             templateUrl: deleteTemplate,
             controller: deleteController
         });
-    }]);
+    }])
+    .run($state => $state.go('list'));
