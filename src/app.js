@@ -12,25 +12,29 @@ angular
         $stateProvider.state('list', {
             url: "/",
             templateUrl: 'src/list/list.html',
-            controller: 'listController'
+            controller: 'listController',
+            controllerAs: 'vm'
         });
 
         $stateProvider.state('add', {
             url: "/toevoegen",
             templateUrl: 'src/add/add.html',
-            controller: 'addController'
+            controller: 'addController',
+            controllerAs: 'vm'
         });
 
         $stateProvider.state('edit', {
             url: "/wijzigen/{id:int}",
             templateUrl: 'src/edit/edit.html',
-            controller: 'editController'
+            controller: 'editController',
+            controllerAs: 'vm'
         });
 
         $stateProvider.state('delete', {
             url: "/verwijderen/{id:int}",
             templateUrl: 'src/delete/delete.html',
-            controller: 'deleteController'
+            controller: 'deleteController',
+            controllerAs: 'vm'
         });
     })
     .run(function ($state) {

@@ -1,15 +1,15 @@
 
 
 angular.module('CrudApp')
-    .controller('editController', function ($scope, $stateParams, persons, $state) {
+    .controller('editController', function ($stateParams, persons, $state) {
         var index = _.findIndex(persons, function (p) {
             return p.id === $stateParams.id;
         });
 
-        $scope.person = angular.copy(persons[index]);
+        this.person = angular.copy(persons[index]);
 
-        $scope.savePerson = function () {
-            persons[index] = $scope.person;
+        this.savePerson = function () {
+            persons[index] = this.person;
             $state.go('list');
         };
     });

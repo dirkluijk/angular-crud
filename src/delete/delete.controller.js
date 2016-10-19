@@ -1,14 +1,14 @@
 
 
 angular.module('CrudApp')
-    .controller('deleteController', function ($scope, persons, $stateParams, $state) {
+    .controller('deleteController', function (persons, $stateParams, $state) {
         var index = _.findIndex(persons, function (p) {
             return p.id === $stateParams.id;
         });
 
-        $scope.person = persons[index];
+        this.person = persons[index];
 
-        $scope.removePerson = function () {
+        this.removePerson = function () {
             persons.splice(index, 1);
             $state.go('list');
         }
