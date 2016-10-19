@@ -5,11 +5,11 @@ var minify = require('gulp-minify');
 var ngAnnotate = require('gulp-ng-annotate');
 
 gulp.task('default', ['js'], function () {
-    gulp.watch('app/**/*.js', ['js']);
+    gulp.watch('src/**/*.js', ['js']);
 });
 
 gulp.task('js', function () {
-    gulp.src('app/**/*.js')
+    gulp.src('src/**/*.js')
         .pipe(concat('app.js'))
         .pipe(ngAnnotate())
         .pipe(minify())
