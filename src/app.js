@@ -26,25 +26,29 @@ angular
         $stateProvider.state('list', {
             url: '/',
             templateUrl: listTemplate,
-            controller: listController
+            controller: listController,
+            controllerAs: 'vm'
         });
 
         $stateProvider.state('add', {
             url: '/toevoegen',
             templateUrl: addTemplate,
-            controller: addController
+            controller: addController,
+            controllerAs: 'vm'
         });
 
         $stateProvider.state('edit', {
             url: '/wijzigen/{id:int}',
             templateUrl: editTemplate,
-            controller: editController
+            controller: editController,
+            controllerAs: 'vm'
         });
 
         $stateProvider.state('delete', {
             url: '/verwijderen/{id:int}',
             templateUrl: deleteTemplate,
-            controller: deleteController
+            controller: deleteController,
+            controllerAs: 'vm'
         });
     }])
     .run($state => $state.go('list'));

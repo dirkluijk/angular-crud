@@ -1,4 +1,4 @@
 /** @ngInject **/
-export default function listController($scope, persons) {
-    $scope.persons = persons;
+export default function listController(persons) {
+    this.persons = persons;
 }

@@ -1,13 +1,13 @@
 
 /** @ngInject **/
-export default function addController($scope, $state, persons) {
-    $scope.person = {
+export default function addController ($state, persons) {
+    this.person = {
         id: parseInt(Math.random() * 100) + 100,
         name: ''
     };
 
-    $scope.addPerson = () => {
-        persons.push($scope.person);
+    this.addPerson = () => {
+        persons.push(this.person);
         $state.go('list');
     };
 };

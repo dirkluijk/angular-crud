@@ -1,12 +1,12 @@
 import * as _ from "lodash";
 
 /** @ngInject **/
-export default function deleteController($scope, persons, $stateParams, $state) {
-    var index = _.findIndex(persons, p=> p.id === $stateParams.id);
+export default function deleteController(persons, $stateParams, $state) {
+    var index = _.findIndex(persons, p => p.id === $stateParams.id);
 
-    $scope.person = persons[index];
+    this.person = persons[index];
 
-    $scope.removePerson = () => {
+    this.removePerson = () => {
         persons.splice(index, 1);
         $state.go('list');
     }
