@@ -4,16 +4,16 @@ import addController from './add/add.controller';
 import editController from './edit/edit.controller';
 import deleteController from './delete/delete.controller';
 
-import angular from 'angular';
-import uiRouter from 'angular-ui-router';
+import {module} from 'angular';
+import {IStateProvider, IUrlRouterProvider} from 'angular-ui-router';
+import 'angular-ui-router';
 
-import listTemplate from './list/list.html';
-import addTemplate from './add/add.html';
-import editTemplate from './edit/edit.html';
-import deleteTemplate from './delete/delete.html';
+let listTemplate = require('./list/list.html');
+let addTemplate = require('./add/add.html');
+let editTemplate = require('./edit/edit.html');
+let deleteTemplate = require('./delete/delete.html');
 
-angular
-    .module('CrudApp', [uiRouter])
+module('CrudApp', ['ui.router'])
     .factory('persons', () => {
         return [
             {id: 1, name: 'Dirk'},
@@ -22,29 +22,33 @@ angular
             {id: 4, name: 'Nicolai'}
         ];
     })
-    .config(['$stateProvider', function ($stateProvider) {
+    .config(['$stateProvider', function ($stateProvider: IStateProvider) {
         $stateProvider.state('list', {
             url: '/',
             templateUrl: listTemplate,
-            controller: listController
+            controller: listController,
+            controllerAs: 'vm'
         });
 
         $stateProvider.state('add', {
             url: '/toevoegen',
             templateUrl: addTemplate,
-            controller: addController
+            controller: addController,
+            controllerAs: 'vm'
         });
 
         $stateProvider.state('edit', {
             url: '/wijzigen/{id:int}',
             templateUrl: editTemplate,
-            controller: editController
+            controller: editController,
+            controllerAs: 'vm'
         });
 
         $stateProvider.state('delete', {
             url: '/verwijderen/{id:int}',
             templateUrl: deleteTemplate,
-            controller: deleteController
+            controller: deleteController,
+            controllerAs: 'vm'
         });
     }])
-    .run($state => $state.go('list'));
+    .config(($urlRouterProvider: IUrlRouterProvider) => $urlRouterProvider.otherwise('/'));

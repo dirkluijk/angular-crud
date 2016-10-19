@@ -1,13 +1,24 @@
-import * as _ from "lodash";
+import * as _ from 'lodash';
+import {IPerson, ICrudParams} from 'crud-app';
+import {IStateService} from 'angular-ui-router';
 
-/** @ngInject **/
-export default function editController($scope, $stateParams, persons, $state) {
-    var index = _.findIndex(persons, p => p.id === $stateParams.id);
+export default class EditController {
+    private persons: IPerson[];
+    private person: IPerson;
+    private index: number;
+    private $state: IStateService;
 
-    $scope.person = angular.copy(persons[index]);
+    /** @ngInject **/
+    constructor($stateParams: ICrudParams, persons: IPerson[], $state: IStateService) {
+        this.index = _.findIndex(persons, p => p.id === $stateParams.id);
+        this.person = angular.copy(persons[this.index]);
+        this.$state = $state;
+        this.persons = persons;
 
-    $scope.savePerson = () => {
-        persons[index] = $scope.person;
-        $state.go('list');
-    };
+    }
+
+    savePerson() {
+        this.persons[this.index] = this.person;
+        this.$state.go('list');
+    }
 };

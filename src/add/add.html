@@ -1,7 +1,7 @@
 <h2>Persoon toevoegen</h2>
 
-<form ng-submit="addPerson()">
-    <input type="text" class="form-control" ng-model="person.name" placeholder="Naam">
+<form ng-submit="vm.addPerson()">
+    <input type="text" class="form-control" ng-model="vm.newPerson.name" placeholder="Naam">
 
     <div class="spacer">
         <button type="submit" class="btn btn-primary">Toevoegen</button>

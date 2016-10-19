@@ -1,13 +1,23 @@
-import * as _ from "lodash";
+import * as _ from 'lodash';
+import {IPerson, ICrudParams} from 'crud-app';
+import {IStateService} from 'angular-ui-router';
 
-/** @ngInject **/
-export default function deleteController($scope, persons, $stateParams, $state) {
-    var index = _.findIndex(persons, p=> p.id === $stateParams.id);
+export default class DeleteController {
+    private person: IPerson;
+    private persons: IPerson[];
+    private $state: IStateService;
+    private index: number;
 
-    $scope.person = persons[index];
+    /** @ngInject **/
+    constructor(persons: IPerson[], $stateParams: ICrudParams, $state: IStateService) {
+        this.index = _.findIndex(persons, p => p.id === $stateParams.id);
+        this.person = persons[this.index];
+        this.persons = persons;
+        this.$state = $state;
+    }
 
-    $scope.removePerson = () => {
-        persons.splice(index, 1);
-        $state.go('list');
+    removePerson() {
+        this.persons.splice(this.index, 1);
+        this.$state.go('list');
     }
 };

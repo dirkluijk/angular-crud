@@ -1,19 +1,21 @@
 module.exports = {
-    entry: './src/app.js',
+    entry: './src/app.ts',
     output: {
         path: './dist',
         filename: 'app.bundle.js'
     },
+    resolve: {
+        extensions: ['', '.ts', '.js']
+    },
     module: {
         loaders: [
             {
-                test: /\.js$/,
-                exclude: /(node_modules)/,
-                loaders: ['ng-annotate', 'babel?presets=es2015']
-            },
-            {
                 test: /\.html$/,
                 loader: 'ngtemplate!html'
+            },
+            {
+                test: /\.ts$/,
+                loader: 'ts-loader'
             }
         ]
     }

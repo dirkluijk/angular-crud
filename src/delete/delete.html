@@ -1,6 +1,7 @@
 <h2>Persoon verwijderen</h2>
-<p>Weet u zeker dat u de persoon {{person.name}} wilt verwijderen?</p>
+<p>Weet u zeker dat u de persoon {{vm.person.name}} wilt verwijderen?</p>
 
-<button class="btn btn-lg btn-danger" ng-click="removePerson()">Verwijderen</button>
-
-<a ui-sref="list">Nee, terug naar overzicht</a>
+<div class="spacer-lg">
+    <button class="btn btn-lg btn-danger" ng-click="vm.removePerson()">Verwijderen</button>
+    <a ui-sref="list" class="btn btn-link">Nee, terug naar overzicht</a>
+</div>
